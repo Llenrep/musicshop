@@ -22,7 +22,7 @@
   <body>
 
     <main role="main">
-        
+
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -34,8 +34,8 @@
             <img class="first-slide" src="{{ asset('images/Mic02.jpg') }}" alt="First slide" width="100%">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h1>Example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <h1>Listen</h1>
+                <p>Save content to your library, make playlists, and share</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
               </div>
             </div>
@@ -44,8 +44,8 @@
             <img class="second-slide" src="{{ asset('images/Audio3.jpg') }}" alt="Second slide" width="100%">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <h1>Create</h1>
+                <p>Record and upload your music, share with others in the community</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
               </div>
             </div>
@@ -54,8 +54,8 @@
             <img class="third-slide" src="{{ asset('images/stockLaptop.jpg') }}" alt="Third slide" width="100%">
             <div class="container">
               <div class="carousel-caption text-right">
-                <h1>One more for good measure.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <h1>Discover</h1>
+                <p>Find out new and local artists</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
               </div>
             </div>
