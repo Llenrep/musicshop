@@ -36,8 +36,6 @@ Route::post('/profile', 'UserController@update_avatar')->name('profile'); //our 
 Route::get('/about', 'About@index')->name('about');
 
 
-
-
 // Route::get('/profile', 'UserController@pull_music')->name('profile');
 
 
