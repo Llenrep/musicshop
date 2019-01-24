@@ -73,8 +73,8 @@
                                         {{ __('Shop') }}
                                     </a></li>
 
-                                    <li><a class="dropdown-item fa fa-btn fa-about" href="/about"
-                                        onclick="event.preventDefault(); document.getElementById('about-form').submit();">
+                                    <li><a class="dropdown-item fa fa-btn fa-about" href="/about" action="/about" method="POST"
+                                        onclick="event.preventDefault(); $this.submit();">
                                         {{ __('About') }}
                                     </a></li>
 
