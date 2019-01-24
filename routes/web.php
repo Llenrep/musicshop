@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('home');
 });
+//adding a route for testing purposes revists later
+Route::get('/shop', function(){
+    return view('shop');
+});
 // route::get('/beats', function(){
 //     $music = 
 //     return response()->json()
