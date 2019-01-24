@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title')
 Home
@@ -20,4 +20,4 @@ Home
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 
-@stop
+@endsection
