@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+//adding a route for testing purposes revists later
+Route::get('/shop', function(){
+    return view('shop');
+});
+
 Route::get('/about', function () {
     return view('about');
 });
