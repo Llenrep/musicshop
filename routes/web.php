@@ -15,14 +15,16 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+// Route::get('/about', function () {
+//     return view('about');
+// });
+
 //adding a route for testing purposes revists later
 Route::get('/shop', function(){
     return view('shop');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
 
 // route::get('/beats', function(){
 //     $music = 
@@ -40,10 +42,8 @@ Route::post('/profile', 'UserController@update_avatar')->name('profile'); //our 
 
 Route::get('/about', 'About@index')->name('about');
 
+Route::get('/upload', 'UploadsController@index')->name('upload');
 
-
-
-// Route::get('/profile', 'UserController@pull_music')->name('profile');
 
 
 ?>
