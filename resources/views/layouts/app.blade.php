@@ -68,14 +68,8 @@
                                         {{ __('Profile') }}
                                     </a></li>
 
-                                    <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('profile') }}"
-                                        onclick="event.preventDefault();">
+                                    <li><a class="dropdown-item fa fa-btn fa-shop" href="{{ route('shop') }}">
                                         {{ __('Shop') }}
-                                    </a></li>
-
-                                    <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('profile') }}"
-                                        onclick="event.preventDefault() document.getElementById('profile-form').submit();">
-                                        {{ __('Profile') }}
                                     </a></li>
 
                                     <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('upload') }}">
@@ -95,6 +89,10 @@
                                     </form>
 
                                     <form id="about-form" action="{{ route('about') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+
+                                    <form id="shop-form" action="{{ route('shop') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
