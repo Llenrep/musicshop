@@ -14,10 +14,16 @@
 Route::get('/', function () {
     return view('home');
 });
+
 //adding a route for testing purposes revists later
 Route::get('/shop', function(){
     return view('shop');
 });
+
+Route::get('/about', function () {
+    return view('about');
+});
+
 // route::get('/beats', function(){
 //     $music = 
 //     return response()->json()
@@ -29,10 +35,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'UserController@profile')->name('profile');//the user controller has a function called profile right?
             //name of route         //function in controller   //name of blade
+
 Route::post('/profile', 'UserController@update_avatar')->name('profile'); //our first post route for changing your avatar 
+
+Route::get('/about', 'About@index')->name('about');
+
+
+
 
 // Route::get('/profile', 'UserController@pull_music')->name('profile');
 
-// Route::resource('/music', 'Api/MusicController');
 
 ?>

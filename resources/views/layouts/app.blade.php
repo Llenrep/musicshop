@@ -70,7 +70,17 @@
 
                                     <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('profile') }}"
                                         onclick="event.preventDefault();">
-                                        {{ __('Some Other Thing') }}
+                                        {{ __('Shop') }}
+                                    </a></li>
+
+                                    <li><a class="dropdown-item fa fa-btn fa-about" href="/about"
+                                        onclick="event.preventDefault(); document.getElementById('about-form').submit();">
+                                        {{ __('About') }}
+                                    </a></li>
+
+                                    <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('profile') }}"
+                                        onclick="event.preventDefault();">
+                                        {{ __('Upload') }}
                                     </a></li>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -78,6 +88,10 @@
                                     </form>
                                     
                                     <form id="profile-form" action="{{ route('profile') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+
+                                    <form id="about-form" action="/about" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class AboutController extends Controller
 {
@@ -12,15 +13,8 @@ class AboutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
-
-        $name = "someone";
-        $email = "something";
-        $typeofUser = "whatever";
-        $message = "Another thing";
-            
-        return view('about',compact('name','email', 'message'));
+    {       
+        return view('about');
     }
 
     /**
