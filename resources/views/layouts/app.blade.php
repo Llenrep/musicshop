@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Nu-Music') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -78,8 +78,7 @@
                                         {{ __('Profile') }}
                                     </a></li>
 
-                                    <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('profile') }}"
-                                        onclick="event.preventDefault();">
+                                    <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('upload') }}">
                                         {{ __('Upload') }}
                                     </a></li>
 
@@ -109,6 +108,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer class="footer" style="position:fixed; left:0; bottom:0; width:100%; background-color:black; color:white; text-align:center;">
+            &copy; Copyright &reg;
+        </footer>
     </div>
 </body>
 </html>

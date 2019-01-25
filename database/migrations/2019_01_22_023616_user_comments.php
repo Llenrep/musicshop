@@ -13,10 +13,11 @@ class UserComments extends Migration
      */
     public function up()
     {
+        
         Schema::create('user_profile', function (Blueprint $table){
             $table->increments('id');
             $table->timestamps();
-            $table->string('profile_picture')->nullable();;
+            $table->string('profile_picture')->nullable();
             $table->string('message')->nullable();
             $table->string('on_song');
         });
