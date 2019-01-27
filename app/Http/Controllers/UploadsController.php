@@ -25,7 +25,7 @@ class UploadsController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
