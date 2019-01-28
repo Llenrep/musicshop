@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Music;
+use Auth;
+use Redirect;
 
 class UploadsController extends Controller
 {
@@ -14,7 +16,12 @@ class UploadsController extends Controller
      */
     public function index()
     {
-        return view('upload');
+        if(Auth::user()){
+            return view('upload', array('user' => Auth::user()));
+        } else if (!Auth::user()) {
+            return Redirect::to('home');//->with($notification);
+        }
+
     }
 
 

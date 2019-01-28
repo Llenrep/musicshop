@@ -18,8 +18,16 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function profile()
-    {
-        return view('profile', array('user' => Auth::user()));
+    {   
+        $user = Auth::user();
+        if(Auth::user()){
+            // $music = Music::all()->toArray();
+            return view('profile', array('user' => Auth::user()), array('music' => Music::all()->where('user_name', $user->name))); //returning two arrays, user array, and music db array
+
+        } else if (!Auth::user()) {
+            return Redirect::to('home');//->with($notification);
+        }
+        
     }
 
     public function update_avatar(Request $REQUEST)
@@ -39,7 +47,14 @@ class UserController extends Controller
     }
 
     public function pull_music(){
-    
+
+
+        $music = Music::all()->toArray();
+        return view('profile', compact('music'));
+    }
+
+    public function upload_music(){
+        
         $file = Input::file('song_file');
         $songname = Input::get('name_of_song');
         $description = Input::get('description');
