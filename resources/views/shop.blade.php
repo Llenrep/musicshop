@@ -17,7 +17,7 @@
     <link href="album.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
 
     <header>
       <div class="collapse bg-dark" id="navbarHeader">
