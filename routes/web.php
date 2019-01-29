@@ -15,12 +15,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-
-// Route::get('/about', function () {
-//     return view('about');
-// });
-
-//adding a route for testing purposes revists later
 Route::get('/shop', function(){
     return view('shop');
 });
@@ -28,11 +22,6 @@ Route::get('/shop', function(){
 Route::get('/checkout', function(){
     return view('checkout');
 });
-
-// route::get('/beats', function(){
-//     $music = 
-//     return response()->json()
-// })
 
 Auth::routes();
 
@@ -47,6 +36,9 @@ Route::get('/about', 'About@index')->name('about');
 
 Route::get('/upload', 'UploadsController@index')->name('upload');
 
+Route::post('/upload', array('as' => 'upload' , 'uses' => 'UserController@pull_music'));
+
+Route::get('/shop', 'ShopController@index')->name('shop');
 
 
 ?>

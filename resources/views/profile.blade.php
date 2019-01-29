@@ -24,7 +24,7 @@ Profile
 
         <ul style="margin-right:65px; color: #3500D3;">
             <center><a>{{ $user->name }}<br><br></a>
-            <a href="/"><br>Status<br></a>
+            <a href="/">Type<br><br></a>
             <a href="/profile" color="black">Your Likes<br><br></a>
             <a href="/">Post/Remove Music<br><br></a>
             <a href="/profile">Purchase<br><br></a></center>

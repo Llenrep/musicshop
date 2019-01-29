@@ -13,12 +13,21 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    <style type="text/css">
+        .help-block{
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -68,14 +77,8 @@
                                         {{ __('Profile') }}
                                     </a></li>
 
-                                    <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('profile') }}"
-                                        onclick="event.preventDefault();">
+                                    <li><a class="dropdown-item fa fa-btn fa-shop" href="{{ route('shop') }}">
                                         {{ __('Shop') }}
-                                    </a></li>
-
-                                    <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('profile') }}"
-                                        onclick="event.preventDefault() document.getElementById('profile-form').submit();">
-                                        {{ __('Profile') }}
                                     </a></li>
 
                                     <li><a class="dropdown-item fa fa-btn fa-profile" href="{{ route('upload') }}">
@@ -95,6 +98,10 @@
                                     </form>
 
                                     <form id="about-form" action="{{ route('about') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+
+                                    <form id="shop-form" action="{{ route('shop') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
