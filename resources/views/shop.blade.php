@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <body>
+  <body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
     <main role="main">
       <section class="jumbotron text-center">
         <div class="container">
@@ -43,4 +43,5 @@
       
 
     </main>
+    </body>
 @endsection

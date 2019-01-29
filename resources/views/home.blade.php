@@ -9,13 +9,20 @@ Home
 
     <title>Carousel Template for Bootstrap</title>
 
+    <style>
+        hr{
+            background: #3500D3;
+        }
+    </style>
+
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
   </head>
-  <body>
+
+  <body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
 
     <main role="main">
 
@@ -73,7 +80,7 @@ Home
         <br>
 
         <div class="row featurette">
-          <div class="col-md-7">
+          <div class="col-md-7" style="color:white;">
             <h2 class="featurette-heading">Welcome to Nu-Music! <span class="text-muted">It'll blow your mind.</span></h2>
             <p class="lead">Join today to recieve 10% off your first purchase, along with a subscription to our site. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             <a class="btn btn-outline-primary" href="#" role="button">Sign Up</a>
@@ -86,7 +93,7 @@ Home
         <hr class="featurette-divider">
 
         <div class="row featurette">
-          <div class="col-md-7 order-md-2" style="float: right;">
+          <div class="col-md-7 order-md-2" style="float: right; color:white;">
             <h2 class="featurette-heading">Shop. <span class="text-muted">Checkmate.</span></h2>
             <p class="lead">Browse for Beats, Songs, or Albums. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             <a class="btn btn-outline-primary" href="#" role="button">Begin Here</a>
@@ -99,7 +106,7 @@ Home
         <hr class="featurette-divider">
 
         <div class="row featurette">
-          <div class="col-md-7">
+          <div class="col-md-7" style="color:white;">
             <h2 class="featurette-heading">Discover. <span class="text-muted">See for yourself.</span></h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             <a class="btn btn-outline-primary" href="#" role="button">Learn More</a>
@@ -124,4 +131,7 @@ Home
      </div>
     </main>
 
+
+  </body>
+</html>
 @endsection

@@ -5,7 +5,10 @@ Profile
 @endsection
 
 @section('content')
-<div style="float:right; position:relative; border-left:1.5px solid grey; height:100%;">
+
+<body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
+
+<div style="float:right; position:relative; border-left:1.5px solid grey; height:100%; color: white;">
     <img src="uploads/avatars/{{ $user->avatar }}" style="width:150px; height:150px; float:right; border-radius:50%; margin-right:75px; margin-bottom:30px;"/>
 
     <div style="border-bottom:1px solid grey; position:relative; ">
@@ -19,7 +22,7 @@ Profile
             </font>
     </div>
 
-        <ul style="margin-right:65px;">
+        <ul style="margin-right:65px; color: #3500D3;">
             <center><a>{{ $user->name }}<br><br></a>
             <a href="/">Type<br><br></a>
             <a href="/profile" color="black">Your Likes<br><br></a>
