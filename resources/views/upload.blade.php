@@ -10,6 +10,8 @@ Upload a Track!
     <h1>Upload a Track</h1>
 </center> <br>
 
+<body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
+
 <div class="container">
 
 {!! Form::open(array('url' => 'upload', 'method' => 'POST', 'class'=> 'form-horizontal', 'files' => true)) !!}

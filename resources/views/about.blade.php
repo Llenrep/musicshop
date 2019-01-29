@@ -8,6 +8,8 @@ About Us
 
 <div class="container">
 
+<body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
+
 <center>
 <div class="row">
   <div class="col-lg-6" style="border-right: 1.2px solid black;">

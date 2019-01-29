@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <body>
+  <body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
     <main role="main">
       <section class="jumbotron text-center">
         <div class="container">
@@ -14,153 +14,34 @@
         </div>
       </section>
 
-      <div class="album py-5 bg-light">
-        <div class="container">
+      
+      <div class="container">
+      <center>
+        <div class="row">
+    <!-- my php code which uses x-path to get results from xml query. -->
+          <?php foreach ( $music as $elements) : ?>
+              <div class="col-md-3 ">
+                <div class="card-columns-fluid">
+                  <div class="card  bg-light" style = "width: 18rem; " >
+                    <img class="card-img-top"  src="uploads/images/{{$elements->image}}" alt="Card image cap" width="100px" height="150px">
 
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ asset('images/uzi2.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Song: Canadian Goose</p>
-                      <p>$1.99</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
+                      <div class="card-body">
+                        <h5 class="card-title"><b><?php echo $elements->name_of_song ?></b></h5>
+                        <p class="card-text"><b><?php echo $elements->description ?></b></p>
+                        <p class="card-text"><?php echo $elements->genre ?></p>
+                        <p class="card-text"><?php echo $elements->user_name ?></p>
+                        <!-- <a href="#" class="btn btn-secondary">Full Details</a> -->
+                      </div>
                     </div>
-                    <small class="text-muted">1000 streams</small>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ asset('images/uzi2.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Song: Villuminati</p>
-                  <p>$1.99</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
-                    </div>
-                    <small class="text-muted">1000 streams</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ asset('images/uzi2.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Song: Money Longer</p>
-                  <p>$1.99</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
-                    </div>
-                    <small class="text-muted">1000 streams</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ asset('images/uzi2.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
-                    </div>
-                    <small class="text-muted">1000 streams</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ asset('images/uzi2.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
-                    </div>
-                    <small class="text-muted">1000 streams</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ asset('images/uzi2.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
-                    </div>
-                    <small class="text-muted">1000 streams</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ asset('images/uzi2.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
-                    </div>
-                    <small class="text-muted">1000 streams</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ asset('images/uzi2.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
-                    </div>
-                    <small class="text-muted">1000 streams</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ asset('images/uzi2.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
-                    </div>
-                    <small class="text-muted">1000 streams</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php endforeach; ?>
           </div>
-        </div>
-      </div>
+          </center>
+        </div> <!--container div  -->
+
+      
 
     </main>
+    </body>
 @endsection

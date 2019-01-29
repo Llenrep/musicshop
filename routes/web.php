@@ -19,6 +19,9 @@ Route::get('/shop', function(){
     return view('shop');
 });
 
+Route::get('/checkout', function(){
+    return view('checkout');
+});
 
 Auth::routes();
 
