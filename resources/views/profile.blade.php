@@ -70,12 +70,7 @@ Profile
                         </table>
                     </div>
                 </div>
-                
-                <!-- <div class="row">
-                <div class="col-md-4"><center><button action="/music" method="POST">Beats</button></center></div>
-                <div class="col-md-4"><center><button action="/music" method="POST">Beats</button></center></div>
-                <div class="col-md-4"><center><button action="/music" method="POST">Beats</button></center></div>
-                </div> -->
+            
         </div>
     </div>
 
