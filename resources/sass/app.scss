@@ -2,6 +2,10 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+@import url('https://use.fontawesome.com/releases/v5.7.0/css/all.css');
+
+@import url('../../public/lib/fontawesome/css/all.min.css');
+
 // Variables
 @import 'variables';
 
@@ -13,6 +17,24 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-footer {
-  position: fixed;
+.Cardigan{
+  color: black;
+  text-align: center;
 }
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.player {
+  margin: 15px 0;
+  background: white;
+  width: 100%;
+  height: 50px;
+  color: black;
+}
+
+

@@ -131,7 +131,7 @@ module.exports = function xhrAdapter(config) {
     // For IE 8/9 CORS support
     // Only supports POST and GET calls and doesn't returns the response headers.
     // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
-    if ( true &&
+    if ("development" !== 'test' &&
         typeof window !== 'undefined' &&
         window.XDomainRequest && !('withCredentials' in request) &&
         !isURLSameOrigin(config.url)) {
@@ -6069,7 +6069,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 	"use strict";
 
-	if (  true && typeof module.exports === "object" ) {
+	if ( typeof module === "object" && typeof module.exports === "object" ) {
 
 		// For CommonJS and CommonJS-like environments where a proper `window`
 		// is present, execute the factory and get jQuery.
@@ -16852,7 +16852,7 @@ return jQuery;
   var root = freeGlobal || freeSelf || Function('return this')();
 
   /** Detect free variable `exports`. */
-  var freeExports =  true && exports && !exports.nodeType && exports;
+  var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
 
   /** Detect free variable `module`. */
   var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
@@ -33645,7 +33645,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.14.6
+ * @version 1.14.7
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -34213,7 +34213,11 @@ function isFixed(element) {
   if (getStyleComputedProperty(element, 'position') === 'fixed') {
     return true;
   }
-  return isFixed(getParentNode(element));
+  var parentNode = getParentNode(element);
+  if (!parentNode) {
+    return false;
+  }
+  return isFixed(parentNode);
 }
 
 /**
@@ -34869,18 +34873,23 @@ function getRoundedOffsets(data, shouldRound) {
   var _data$offsets = data.offsets,
       popper = _data$offsets.popper,
       reference = _data$offsets.reference;
+  var round = Math.round,
+      floor = Math.floor;
 
-
-  var isVertical = ['left', 'right'].indexOf(data.placement) !== -1;
-  var isVariation = data.placement.indexOf('-') !== -1;
-  var sameWidthOddness = reference.width % 2 === popper.width % 2;
-  var bothOddWidth = reference.width % 2 === 1 && popper.width % 2 === 1;
   var noRound = function noRound(v) {
     return v;
   };
 
-  var horizontalToInteger = !shouldRound ? noRound : isVertical || isVariation || sameWidthOddness ? Math.round : Math.floor;
-  var verticalToInteger = !shouldRound ? noRound : Math.round;
+  var referenceWidth = round(reference.width);
+  var popperWidth = round(popper.width);
+
+  var isVertical = ['left', 'right'].indexOf(data.placement) !== -1;
+  var isVariation = data.placement.indexOf('-') !== -1;
+  var sameWidthParity = referenceWidth % 2 === popperWidth % 2;
+  var bothOddWidth = referenceWidth % 2 === 1 && popperWidth % 2 === 1;
+
+  var horizontalToInteger = !shouldRound ? noRound : isVertical || isVariation || sameWidthParity ? round : floor;
+  var verticalToInteger = !shouldRound ? noRound : round;
 
   return {
     left: horizontalToInteger(bothOddWidth && !isVariation && shouldRound ? popper.left - 1 : popper.left),
@@ -44117,7 +44126,7 @@ function setInitialDOMProperties(tag, domElement, rootContainerElement, nextProp
       // on server rendering (but we *do* want to emit it in SSR).
     } else if (registrationNameModules.hasOwnProperty(propKey)) {
       if (nextProp != null) {
-        if ( true && typeof nextProp !== 'function') {
+        if (true && typeof nextProp !== 'function') {
           warnForInvalidEventListener(propKey, nextProp);
         }
         ensureListeningTo(rootContainerElement, propKey);
@@ -44462,7 +44471,7 @@ function diffProperties(domElement, tag, lastRawProps, nextRawProps, rootContain
     } else if (registrationNameModules.hasOwnProperty(propKey)) {
       if (nextProp != null) {
         // We eagerly listen to this even though we haven't committed yet.
-        if ( true && typeof nextProp !== 'function') {
+        if (true && typeof nextProp !== 'function') {
           warnForInvalidEventListener(propKey, nextProp);
         }
         ensureListeningTo(rootContainerElement, propKey);
@@ -44647,14 +44656,14 @@ function diffHydratedProperties(domElement, tag, rawProps, parentNamespace, root
       // TODO: Should we use domElement.firstChild.nodeValue to compare?
       if (typeof nextProp === 'string') {
         if (domElement.textContent !== nextProp) {
-          if ( true && !suppressHydrationWarning) {
+          if (true && !suppressHydrationWarning) {
             warnForTextDifference(domElement.textContent, nextProp);
           }
           updatePayload = [CHILDREN, nextProp];
         }
       } else if (typeof nextProp === 'number') {
         if (domElement.textContent !== '' + nextProp) {
-          if ( true && !suppressHydrationWarning) {
+          if (true && !suppressHydrationWarning) {
             warnForTextDifference(domElement.textContent, nextProp);
           }
           updatePayload = [CHILDREN, '' + nextProp];
@@ -44662,12 +44671,12 @@ function diffHydratedProperties(domElement, tag, rawProps, parentNamespace, root
       }
     } else if (registrationNameModules.hasOwnProperty(propKey)) {
       if (nextProp != null) {
-        if ( true && typeof nextProp !== 'function') {
+        if (true && typeof nextProp !== 'function') {
           warnForInvalidEventListener(propKey, nextProp);
         }
         ensureListeningTo(rootContainerElement, propKey);
       }
-    } else if ( true &&
+    } else if (true &&
     // Convince Flow we've calculated it (it's DEV-only in this method.)
     typeof isCustomComponentTag === 'boolean') {
       // Validate that the properties correspond to their expected values.
@@ -45490,7 +45499,7 @@ function didNotMatchHydratedContainerTextInstance(parentContainer, textInstance,
 }
 
 function didNotMatchHydratedTextInstance(parentType, parentProps, parentInstance, textInstance, text) {
-  if ( true && parentProps[SUPPRESS_HYDRATION_WARNING] !== true) {
+  if (true && parentProps[SUPPRESS_HYDRATION_WARNING] !== true) {
     warnForUnmatchedText(textInstance, text);
   }
 }
@@ -45506,7 +45515,7 @@ function didNotHydrateContainerInstance(parentContainer, instance) {
 }
 
 function didNotHydrateInstance(parentType, parentProps, parentInstance, instance) {
-  if ( true && parentProps[SUPPRESS_HYDRATION_WARNING] !== true) {
+  if (true && parentProps[SUPPRESS_HYDRATION_WARNING] !== true) {
     if (instance.nodeType === ELEMENT_NODE) {
       warnForDeletedHydratableElement(parentInstance, instance);
     } else {
@@ -45528,13 +45537,13 @@ function didNotFindHydratableContainerTextInstance(parentContainer, text) {
 }
 
 function didNotFindHydratableInstance(parentType, parentProps, parentInstance, type, props) {
-  if ( true && parentProps[SUPPRESS_HYDRATION_WARNING] !== true) {
+  if (true && parentProps[SUPPRESS_HYDRATION_WARNING] !== true) {
     warnForInsertedHydratedElement(parentInstance, type, props);
   }
 }
 
 function didNotFindHydratableTextInstance(parentType, parentProps, parentInstance, text) {
-  if ( true && parentProps[SUPPRESS_HYDRATION_WARNING] !== true) {
+  if (true && parentProps[SUPPRESS_HYDRATION_WARNING] !== true) {
     warnForInsertedHydratedText(parentInstance, text);
   }
 }
@@ -46246,7 +46255,7 @@ function catchErrors(fn) {
     try {
       return fn(arg);
     } catch (err) {
-      if ( true && !hasLoggedError) {
+      if (true && !hasLoggedError) {
         hasLoggedError = true;
         warningWithoutStack$1(false, 'React DevTools encountered an error: %s', err);
       }
@@ -53939,7 +53948,7 @@ var mayReplayFailedUnitOfWork = void 0;
 var isReplayingFailedUnitOfWork = void 0;
 var originalReplayError = void 0;
 var rethrowOriginalError = void 0;
-if ( true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
+if (true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
   stashedWorkInProgressProperties = null;
   mayReplayFailedUnitOfWork = true;
   isReplayingFailedUnitOfWork = false;
@@ -54373,7 +54382,7 @@ function commitRoot(root, finishedWork) {
   stopCommitLifeCyclesTimer();
   stopCommitTimer();
   onCommitRoot(finishedWork.stateNode);
-  if ( true && ReactFiberInstrumentation_1.debugTool) {
+  if (true && ReactFiberInstrumentation_1.debugTool) {
     ReactFiberInstrumentation_1.debugTool.onCommitWork(finishedWork);
   }
 
@@ -54518,7 +54527,7 @@ function completeUnitOfWork(workInProgress) {
     var siblingFiber = workInProgress.sibling;
 
     if ((workInProgress.effectTag & Incomplete) === NoEffect) {
-      if ( true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
+      if (true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
         // Don't replay if it fails during completion phase.
         mayReplayFailedUnitOfWork = false;
       }
@@ -54537,7 +54546,7 @@ function completeUnitOfWork(workInProgress) {
       } else {
         nextUnitOfWork = completeWork(current$$1, workInProgress, nextRenderExpirationTime);
       }
-      if ( true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
+      if (true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
         // We're out of completion phase so replaying is fine now.
         mayReplayFailedUnitOfWork = true;
       }
@@ -54587,7 +54596,7 @@ function completeUnitOfWork(workInProgress) {
         }
       }
 
-      if ( true && ReactFiberInstrumentation_1.debugTool) {
+      if (true && ReactFiberInstrumentation_1.debugTool) {
         ReactFiberInstrumentation_1.debugTool.onCompleteWork(workInProgress);
       }
 
@@ -54635,7 +54644,7 @@ function completeUnitOfWork(workInProgress) {
 
       if (next !== null) {
         stopWorkTimer(workInProgress);
-        if ( true && ReactFiberInstrumentation_1.debugTool) {
+        if (true && ReactFiberInstrumentation_1.debugTool) {
           ReactFiberInstrumentation_1.debugTool.onCompleteWork(workInProgress);
         }
 
@@ -54653,7 +54662,7 @@ function completeUnitOfWork(workInProgress) {
         returnFiber.effectTag |= Incomplete;
       }
 
-      if ( true && ReactFiberInstrumentation_1.debugTool) {
+      if (true && ReactFiberInstrumentation_1.debugTool) {
         ReactFiberInstrumentation_1.debugTool.onCompleteWork(workInProgress);
       }
 
@@ -54689,7 +54698,7 @@ function performUnitOfWork(workInProgress) {
     setCurrentFiber(workInProgress);
   }
 
-  if ( true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
+  if (true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
     stashedWorkInProgressProperties = assignFiberPropertiesInDEV(stashedWorkInProgressProperties, workInProgress);
   }
 
@@ -54721,7 +54730,7 @@ function performUnitOfWork(workInProgress) {
       rethrowOriginalError();
     }
   }
-  if ( true && ReactFiberInstrumentation_1.debugTool) {
+  if (true && ReactFiberInstrumentation_1.debugTool) {
     ReactFiberInstrumentation_1.debugTool.onBeginWork(workInProgress);
   }
 
@@ -54833,7 +54842,7 @@ function renderRoot(root, isYieldy) {
       // Reset in case completion throws.
       // This is only used in DEV and when replaying is on.
       var mayReplay = void 0;
-      if ( true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
+      if (true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
         mayReplay = mayReplayFailedUnitOfWork;
         mayReplayFailedUnitOfWork = true;
       }
@@ -54855,7 +54864,7 @@ function renderRoot(root, isYieldy) {
           resetCurrentlyProcessingQueue();
         }
 
-        if ( true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
+        if (true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
           if (mayReplay) {
             var failedUnitOfWork = nextUnitOfWork;
             replayUnitOfWork(failedUnitOfWork, thrownValue, isYieldy);
@@ -59797,7 +59806,7 @@ g = (function() {
 
 try {
 	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
+	g = g || Function("return this")() || (1, eval)("this");
 } catch (e) {
 	// This works if the window reference is available
 	if (typeof window === "object") g = window;
@@ -59863,9 +59872,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+// require('./components/Example');
 
 
-__webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
+__webpack_require__(/*! ./components/Music */ "./resources/js/components/Music.js");
 
 /***/ }),
 
@@ -59927,20 +59937,22 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Example.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/Example.js ***!
-  \********************************************/
+/***/ "./resources/js/components/Music.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/Music.js ***!
+  \******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Example; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Music; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59962,18 +59974,19 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Example =
+
+var Music =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Example, _Component);
+  _inherits(Music, _Component);
 
-  function Example() {
-    _classCallCheck(this, Example);
+  function Music() {
+    _classCallCheck(this, Music);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Example).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Music).apply(this, arguments));
   }
 
-  _createClass(Example, [{
+  _createClass(Music, [{
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -59981,24 +59994,25 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row justify-content-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
+        className: "col-md-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Example Component"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, "I'm an example component!")))));
+        className: "player"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        class: "fa fa-play",
+        "aria-hidden": "true"
+      }))))));
     }
   }]);
 
-  return Example;
+  return Music;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 
 if (document.getElementById('example')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Example, null), document.getElementById('example'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Music, null), document.getElementById('example'));
 }
 
 /***/ }),
