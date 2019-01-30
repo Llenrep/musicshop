@@ -10,7 +10,7 @@ Upload a Track!
     <h1>Upload a Track</h1>
 </center> <br>
 
-<body style="background-color: black; color:white; font-family: 'Copperplate', Times, serif;">
+<body style="background-color: #1c1c1c; color:white; font-family: 'New Peninim MT', Times, serif;">
 
 <div class="container">
 

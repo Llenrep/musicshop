@@ -22,7 +22,7 @@ Home
     <link href="carousel.css" rel="stylesheet">
   </head>
 
-  <body style="background-color: black; opacity: 0.7; color:white; font-family: 'Copperplate', Times, serif;">
+  <body style="background-color: #1c1c1c; color:white; font-family: 'New Peninim MT', Times, serif;">
 
     <main role="main">
 
@@ -39,7 +39,7 @@ Home
               <div class="carousel-caption text-left">
                 <h1>Listen</h1>
                 <p>Save content to your library, make playlists, and share</p>
-                <a class="btn btn-lg btn-primary" href="{{ route('register') }}" role="button" style="z-index:0;">Sign up today</a>
+                <a class="btn btn-lg btn-danger" href="{{ route('register') }}" role="button" style="z-index:0;">Sign up today</a>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@ Home
               <div class="carousel-caption">
                 <h1>Create</h1>
                 <p>Record and upload your music, share with others in the community</p>
-                <a class="btn btn-lg btn-primary" href="{{ route('about') }}" role="button">Learn more</a>
+                <a class="btn btn-lg btn-danger" href="{{ route('about') }}" role="button">Learn more</a>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ Home
               <div class="carousel-caption text-right">
                 <h1>Discover</h1>
                 <p>Find out new and local artists</p>
-                <a class="btn btn-lg btn-primary" href="{{ route('shop') }}" role="button">Browse gallery</a>
+                <a class="btn btn-lg btn-danger" href="{{ route('shop') }}" role="button">Browse gallery</a>
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ Profile
 
 @section('content')
 
-<body style="background-color: black; color:white; font-family: 'Copperplate', Times, serif;">
+<body style="background-color: #1c1c1c; color:white; font-family: 'New Peninim MT', Times, serif;">
 
 <div style="float:right; position:relative; border-left:1.5px solid grey; height:100%; color: white;">
     <img src="uploads/avatars/{{ $user->avatar }}" style="width:150px; height:150px; float:right; border-radius:50%; margin-right:75px; margin-bottom:30px;"/>

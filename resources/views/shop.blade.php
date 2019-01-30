@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <body style="background-color: black; color:white; font-family: 'Copperplate', Times, serif;">
+  <body style="background-color: #1c1c1c; color:white; font-family: 'New Peninim MT', Times, serif;">
     <main role="main">
       <section class="jumbotron text-center">
         <div class="container">
