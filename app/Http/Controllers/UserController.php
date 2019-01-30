@@ -54,13 +54,12 @@ class UserController extends Controller
 
     public function pull_music(){
 
-
         $music = Music::all()->toArray();
         return view('profile', compact('music'));
     }
 
     public function upload_music(){
-        
+
         $file = Input::file('song_file');
         $songname = Input::get('name_of_song');
         $description = Input::get('description');
@@ -130,7 +129,6 @@ class UserController extends Controller
                 return Redirect::to('upload')->with($notification);
             }
 
-            
         }
 
     }
