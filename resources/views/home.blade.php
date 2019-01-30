@@ -1,9 +1,19 @@
 @extends('layouts.app')
 
+@section('title')
+Home
+@endsection
+
 @section('content')
 
 
     <title>Carousel Template for Bootstrap</title>
+
+    <style>
+        hr{
+            background: #3500D3;
+        }
+    </style>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,7 +21,8 @@
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
   </head>
-  <body>
+
+  <body style="background-color: black; opacity: 0.7; color:white; font-family: 'Copperplate', Times, serif;">
 
     <main role="main">
 
@@ -23,32 +34,32 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide" src="{{ asset('images/Mic02.jpg') }}" alt="First slide" height="600px" width="100%">
+            <img class="first-slide" src="{{ asset('images/Mic02.jpg') }}" alt="First slide" height="500px" width="100%">
             <div class="container">
               <div class="carousel-caption text-left">
                 <h1>Listen</h1>
                 <p>Save content to your library, make playlists, and share</p>
-                <a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a>
+                <a class="btn btn-lg btn-primary" href="{{ route('register') }}" role="button" style="z-index:0;">Sign up today</a>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="second-slide" src="{{ asset('images/Audio3.jpg') }}" alt="Second slide" height="600px" width="100%">
+            <img class="second-slide" src="{{ asset('images/Audio3.jpg') }}" alt="Second slide" height="500px" width="100%">
             <div class="container">
               <div class="carousel-caption">
                 <h1>Create</h1>
                 <p>Record and upload your music, share with others in the community</p>
-                <a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
+                <a class="btn btn-lg btn-primary" href="{{ route('about') }}" role="button">Learn more</a>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="third-slide" src="{{ asset('images/stockLaptop.jpg') }}" alt="Third slide" height="600px" width="100%">
+            <img class="third-slide" src="{{ asset('images/stockLaptop.jpg') }}" alt="Third slide" height="500px" width="100%">
             <div class="container">
               <div class="carousel-caption text-right">
                 <h1>Discover</h1>
                 <p>Find out new and local artists</p>
-                <a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a>
+                <a class="btn btn-lg btn-primary" href="{{ route('shop') }}" role="button">Browse gallery</a>
               </div>
             </div>
           </div>
@@ -69,10 +80,10 @@
         <br>
 
         <div class="row featurette">
-          <div class="col-md-7">
+          <div class="col-md-7" style="color:white;">
             <h2 class="featurette-heading">Welcome to Nu-Music! <span class="text-muted">It'll blow your mind.</span></h2>
             <p class="lead">Join today to recieve 10% off your first purchase, along with a subscription to our site. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            <a class="btn btn-outline-primary" href="#" role="button">Sign Up</a>
+            <a class="btn btn-outline-primary" href="{{route('register')}}" role="button" style="z-index:0;">Sign Up</a>
           </div>
           <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" src="{{ asset('images/soundBars.jpg') }}" alt="Generic placeholder image">
@@ -82,10 +93,10 @@
         <hr class="featurette-divider">
 
         <div class="row featurette">
-          <div class="col-md-7 order-md-2" style="float: right;">
+          <div class="col-md-7 order-md-2" style="float: right; color:white;">
             <h2 class="featurette-heading">Shop. <span class="text-muted">Checkmate.</span></h2>
             <p class="lead">Browse for Beats, Songs, or Albums. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            <a class="btn btn-outline-primary" href="#" role="button">Begin Here</a>
+            <a class="btn btn-outline-primary" href="{{ route('shop') }}" role="button">Begin Here</a>
           </div>
           <div class="col-md-5 order-md-1">
             <img class="featurette-image img-fluid mx-auto" src="{{ asset('images/Music1.jpg') }}" alt="Generic placeholder image">
@@ -95,7 +106,7 @@
         <hr class="featurette-divider">
 
         <div class="row featurette">
-          <div class="col-md-7">
+          <div class="col-md-7" style="color:white;">
             <h2 class="featurette-heading">Discover. <span class="text-muted">See for yourself.</span></h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             <a class="btn btn-outline-primary" href="#" role="button">Learn More</a>
@@ -120,4 +131,7 @@
      </div>
     </main>
 
+
+  </body>
+</html>
 @endsection

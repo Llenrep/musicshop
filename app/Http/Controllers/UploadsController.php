@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Music;
+use Auth;
+use Redirect;
+use Input;
+Use Validator;
+
 
 class UploadsController extends Controller
 {
@@ -14,7 +19,9 @@ class UploadsController extends Controller
      */
     public function index()
     {
-        return view('upload');
+        // $url = Storage::url();
+    return view('shop', array('user' => Auth::user()), array('music' => Music::all()) /*,array('imagepath' => $url)*/);
+    
     }
 
 
@@ -23,9 +30,9 @@ class UploadsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createPlaylist()
     {
-
+        return view('upload', array('user' => Auth::user()));
     }
 
     /**
@@ -68,7 +75,7 @@ class UploadsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatePlaylist(Request $request, $id)
     {
         //
     }
