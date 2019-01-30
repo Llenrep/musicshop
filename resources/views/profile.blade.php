@@ -6,7 +6,7 @@ Profile
 
 @section('content')
 
-<body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
+<body style="background-image: url({{ asset('images/Unknown11.jpg') }});  color:white; font-family: 'Copperplate', Times, serif;"">
 
 <div style="float:right; position:relative; border-left:1.5px solid grey; height:100%; color: white;">
     <img src="uploads/avatars/{{ $user->avatar }}" style="width:150px; height:150px; float:right; border-radius:50%; margin-right:75px; margin-bottom:30px;"/>

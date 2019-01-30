@@ -10,7 +10,7 @@ Upload a Track!
     <h1>Upload a Track</h1>
 </center> <br>
 
-<body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
+<body style="background-image: url({{ asset('images/Unknown11.jpg') }}); color:white; font-family: 'Copperplate', Times, serif;">
 
 <div class="container">
 

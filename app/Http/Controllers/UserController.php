@@ -39,6 +39,11 @@ class UserController extends Controller
     }
 
     public function pull_music(){
+        $music = Music::all()->toArray();
+        return view('profile', compact('music'));
+    }
+
+    public function upload_music(){
     
         $file = Input::file('song_file');
         $songname = Input::get('name_of_song');
@@ -75,14 +80,13 @@ class UserController extends Controller
                 $extensiontwo = Input::file('image')->getClientOriginalExtension();
                 $filenametwo = rand(11111,99999).'.'.$extensiontwo;
                 $destinationPathTwo = 'uploads/images';
-                $image->move($destinationPathTwo, $filenametwo);
-
+                Image::make($image)->resize(300,300)->save( public_path('uploads/images/'. $filenametwo) );
 
                 $data = array (
-                    'song_file' => $file,
+                    'song_file' => $filename,
                     'name_of_song' => $songname,
                     'description' => $description,
-                    'image' => $image,
+                    'image' => $filenametwo,
                     'user_name' => $user,
                     'genre' => $genre,
                     'streams' => 0
@@ -107,36 +111,6 @@ class UserController extends Controller
                 return Redirect::to('upload')->with($notification);
             }
 
-            if (Input::file('image')->isValid()){
-
-                $extensiontwo = Input::file('image')->getClientOriginalExtension();
-                $filenametwo = rand(11111,99999).'.'.$extensiontwo;
-                $destinationPathTwo = 'uploads/images';
-                $image->move($destinationPathTwo, $filenametwo);
-
-
-                $data = array (
-                    'image' => $image,
-                );
-
-                Music::insert($data);
-
-                $notification = array(
-                    'message' => 'file uploaded successfully!',
-                    'alert-type' => 'success'
-                );
-
-                return Redirect::to('upload')->with($notification);
-
-            } else {
-
-                $notification = array(
-                    'message' => 'file uploaded successfully!',
-                    'alert-type' => 'error'
-                );
-
-                return Redirect::to('upload')->with($notification);
-            }
         }
 
     }

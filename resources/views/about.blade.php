@@ -8,7 +8,7 @@ About Us
 
 <div class="container">
 
-<body style="background-image: url({{ asset('images/Unknown11.jpg') }});">
+<body style="background-image: url({{ asset('images/Unknown11.jpg') }});  color:white; font-family: 'Copperplate', Times, serif;">
 
 <center>
 <div class="row">
