@@ -18,7 +18,7 @@
     <link href="carousel.css" rel="stylesheet">
   </head>
 
-  <body style="background-image: url({{ asset('images/Unknown11.jpg') }}); color:white; font-family: 'Copperplate', Times, serif;">
+  <body style="background-color: black; opacity: 0.7; color:white; font-family: 'Copperplate', Times, serif;">
 
     <main role="main">
 

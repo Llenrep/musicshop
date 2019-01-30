@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <body style="background-image: url({{ asset('images/Unknown11.jpg') }});  color:white; font-family: 'Copperplate', Times, serif;">
+  <body style="background-color: black; color:white; font-family: 'Copperplate', Times, serif;">
     <main role="main">
       <section class="jumbotron text-center">
         <div class="container">
