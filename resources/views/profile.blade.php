@@ -43,11 +43,38 @@ Profile
                         </div>
                     @endif
                 </div>
+
                 <div class="row">
-                <div class="col-md-4"><center><button action="/music" method="POST">Beats</button></center></div>
-                <div class="col-md-4"><center><button action="/music" method="POST">Songs</button></center></div>
-                <div class="col-md-4"><center><button action="/music" method="POST">Tracks</button></center></div>
+                    <div class="col-md-12">
+                        <br>
+                        <h3 align="center">List Of Music</h3>
+                        <br>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Author</th>
+                                <th>Title</th>
+                                <th>Song</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Genre</th>
+                                <th>Plays</th>
+                            </tr>
+                            @foreach($music as $row)
+                            <tr>
+                                <td>{{$row['user_name']}}</td>
+                                <td>{{$row['name_of_song']}}</td>
+                                <td>{{$row['song_file']}}</td>
+                                <td>{{$row['description']}}</td>
+                                <td>{{$row['image']}}</td>
+                                <td>{{$row['genre']}}</td>
+                                <td>{{$row['streams']}}</td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
+
                 </div>
+            
         </div>
     </div>
 

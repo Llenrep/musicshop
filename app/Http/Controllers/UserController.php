@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Auth;
 use Image;
 use Input;
 Use Validator;
 use Redirect;
 use App\Music;
+
+
 
 class UserController extends Controller
 {
@@ -18,8 +21,19 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function profile()
-    {
-        return view('profile', array('user' => Auth::user()));
+    {   
+        $user = Auth::user();
+        if(Auth::user()){
+            // $music = Music::all()->toArray(); just in case You just need a variable.
+            
+            return view('profile', array('user' => Auth::user()), array('music' => Music::all()->where('user_name', $user->name))); //returning two arrays, user array, and music db array
+
+        } else if (!Auth::user()) {
+
+            return Redirect::to('home');//->with($notification);
+
+        }
+        
     }
 
     public function update_avatar(Request $REQUEST)
@@ -39,12 +53,13 @@ class UserController extends Controller
     }
 
     public function pull_music(){
+
         $music = Music::all()->toArray();
         return view('profile', compact('music'));
     }
 
     public function upload_music(){
-    
+
         $file = Input::file('song_file');
         $songname = Input::get('name_of_song');
         $description = Input::get('description');
@@ -72,11 +87,14 @@ class UserController extends Controller
             if (Input::file('song_file')->isValid()){
                 $user = Auth::user()->name;
 
+                //for the song that is uploaded
                 $extension = Input::file('song_file')->getClientOriginalExtension();
                 $filename = rand(11111,99999).'.'.$extension;
                 $destinationPath="uploads/music";
                 $file->move($destinationPath, $filename);
+                // Storage::disk('public')->put('music', $filename);
 
+                //for the image that is uploaded
                 $extensiontwo = Input::file('image')->getClientOriginalExtension();
                 $filenametwo = rand(11111,99999).'.'.$extensiontwo;
                 $destinationPathTwo = 'uploads/images';

@@ -14,4 +14,4 @@ require('./bootstrap');
  */
 
 // require('./components/musicSelection');
-// require('./components/Example');
+require('./components/Example');
