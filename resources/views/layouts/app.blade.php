@@ -19,6 +19,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('lib/fontawesome/css/fontawesome.min.css') }}">
+
+    <!-- <link href="/css/app.css" rel="stylesheet" type="text/css"> -->
+    
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -115,10 +119,13 @@
         <main class="py-4">
             @yield('content')
         </main>
+        
+        <div id="example" style="position:fixed; left:0; bottom:0; width:100%; color:white; z-index:1;"></div>
 
-        <footer class="footer" style="position:fixed; left:0; bottom:0; width:100%; background-color:black; color:white; text-align:center;">
+        <footer class="footer" style="position:relative; bottom:0; width:100%; background-color:black; color:white; text-align:center;">
             &copy; Copyright &reg;
         </footer>
     </div>
+
 </body>
 </html>

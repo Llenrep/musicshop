@@ -32,7 +32,7 @@ Profile
 </div>
 
 <div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="color:white;">
         <div class="col-md-12">
         <div class="card-header">Dashboard</div>
                 <center><h1>{{ $user->name }}'s Profile</h1></center><hr>
@@ -44,7 +44,7 @@ Profile
                     @endif
                 </div>
 
-                <div class="row">
+                <div class="row" style="color:white;">
                     <div class="col-md-12">
                         <br>
                         <h3 align="center">List Of Music</h3>
