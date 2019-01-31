@@ -22,7 +22,7 @@ Home
     <link href="carousel.css" rel="stylesheet">
   </head>
 
-  <body style="background-color: black; opacity: 0.7; color:white; font-family: 'Copperplate', Times, serif;">
+  <body style="background-color: #1c1c1c; color:white; font-family: 'New Peninim MT', Times, serif;">
 
     <main role="main">
 
@@ -39,7 +39,7 @@ Home
               <div class="carousel-caption text-left">
                 <h1>Listen</h1>
                 <p>Save content to your library, make playlists, and share</p>
-                <a class="btn btn-lg btn-primary" href="{{ route('register') }}" role="button" style="z-index:0;">Sign up today</a>
+                <a class="btn btn-lg btn-danger" href="{{ route('register') }}" role="button" style="z-index:0;">Sign up today</a>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@ Home
               <div class="carousel-caption">
                 <h1>Create</h1>
                 <p>Record and upload your music, share with others in the community</p>
-                <a class="btn btn-lg btn-primary" href="{{ route('about') }}" role="button">Learn more</a>
+                <a class="btn btn-lg btn-danger" href="{{ route('about') }}" role="button">Learn more</a>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ Home
               <div class="carousel-caption text-right">
                 <h1>Discover</h1>
                 <p>Find out new and local artists</p>
-                <a class="btn btn-lg btn-primary" href="{{ route('shop') }}" role="button">Browse gallery</a>
+                <a class="btn btn-lg btn-danger" href="{{ route('shop') }}" role="button">Browse gallery</a>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ Home
           <div class="col-md-7" style="color:white;">
             <h2 class="featurette-heading">Welcome to Nu-Music! <span class="text-muted">It'll blow your mind.</span></h2>
             <p class="lead">Join today to recieve 10% off your first purchase, along with a subscription to our site. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            <a class="btn btn-outline-primary" href="{{route('register')}}" role="button" style="z-index:0;">Sign Up</a>
+            <button class="btn btn-outline-danger" href="{{route('register')}}">Sign Up</button>
           </div>
           <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" src="{{ asset('images/soundBars.jpg') }}" alt="Generic placeholder image">
@@ -96,7 +96,7 @@ Home
           <div class="col-md-7 order-md-2" style="float: right; color:white;">
             <h2 class="featurette-heading">Shop. <span class="text-muted">Checkmate.</span></h2>
             <p class="lead">Browse for Beats, Songs, or Albums. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            <a class="btn btn-outline-primary" href="{{ route('shop') }}" role="button">Begin Here</a>
+            <button class="btn btn-outline-danger" href="{{ route('shop') }}">Begin Here</button>
           </div>
           <div class="col-md-5 order-md-1">
             <img class="featurette-image img-fluid mx-auto" src="{{ asset('images/Music1.jpg') }}" alt="Generic placeholder image">
@@ -109,7 +109,7 @@ Home
           <div class="col-md-7" style="color:white;">
             <h2 class="featurette-heading">Discover. <span class="text-muted">See for yourself.</span></h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            <a class="btn btn-outline-primary" href="#" role="button">Learn More</a>
+            <button class="btn btn-outline-danger" href="#" role="button">Learn More</button>
           </div>
           <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" src="{{ asset('images/Crowd1.jpg') }}" alt="Generic placeholder image">
