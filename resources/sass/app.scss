@@ -4,7 +4,7 @@
 
 @import url('https://use.fontawesome.com/releases/v5.7.0/css/all.css');
 
-@import url('../../public/lib/fontawesome/css/all.min.css');
+@import url('../../public/lib/fontawesome/css/all.css');
 
 // Variables
 @import 'variables';
@@ -30,10 +30,71 @@
 }
 
 .player {
-  margin: 15px 0;
-  background: white;
-  width: 100%;
+  background-image: url('../images/RedWhiteBlackStreaks.jpg');
+  // background-image: url('../../public/images/RedWhiteBlackStreaks.jpg');
+  border: 1.0px solid goldenrod;
+  border-radius: 20px;
+}
+
+.controls {
+  float: left;
+}
+
+.controls > a {
+  text-decoration: none;
   height: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 15px 0px;
+  float: left;
+  margin-left: 20px;
+  color: white;
+}
+
+
+.controls > a:hover{
+  background-color: red;
+  color: black;
+}
+
+.progress {
+  position: absolute;
+  top: 22px;
+  height: 10px;
+  left: 100px;
+  right: 14%;
+  bottom: 0px;
+  background: white;
+}
+.progress > .bar {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  float: left;
+  left: 0px;
+  width: 50%;
+  bottom: 0px;
+  background: black;
+}
+
+.actions {
+  float: right;
+  margin: 0px 40px 0px 0px;
+}
+
+.actions > a {
+  text-decoration: none;
+  height: 50px;
+  box-sizing: border-box;
+  // text-align: center;
+  margin-left: 15px;
+  padding: 15px 0px;
+  float: left;
+  color: white;
+}
+
+.actions > a:hover {
+  background-color: red;
   color: black;
 }
 

@@ -59973,23 +59973,59 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
+ // <i class="fas fa-pause"></i> for the pause button when the play thing is clicked. Something simple like clicking 
+// play = () => {
+//     this.setState({ play: true, pause: false })
+//     this.audio.play();
+// }
+// pause = () => {
+//     this.setState({ play: false, pause: true })
+//     this.audio.pause();
+// }
 
 var Music =
 /*#__PURE__*/
 function (_Component) {
   _inherits(Music, _Component);
 
+  //okay gotta start psuedo coding. we need a function to change the state of playing
+  //within the music array in state, it should have an array of all the available songs just there.
   function Music() {
+    var _this;
+
     _classCallCheck(this, Music);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Music).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Music).call(this));
+    console.log(_this = _possibleConstructorReturn(this, _getPrototypeOf(Music).call(this)));
+    _this.state = {
+      music: [],
+      play: false,
+      pause: true,
+      file: 'https://soundcloud.com/dj-triet-lpbp/ocean-base-louispierreprod'
+    };
+    return _this;
   }
 
   _createClass(Music, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/shop').then(function (response) {
+        _this2.setState({
+          music: response.data
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+      console.log(this.state.music);
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alltogether"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row justify-content-center"
@@ -59999,10 +60035,57 @@ function (_Component) {
         className: "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "player"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "controls"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "javascript:void();"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "fa fa-play",
+        className: "fa fa-chevron-left",
         "aria-hidden": "true"
-      }))))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "javascript:void();"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-play",
+        "aria-hidden": "true"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "javascript:void();"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-chevron-right",
+        "aria-hidden": "true"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "musicControl"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "progress"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bar"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "actions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "javascript:void();"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-thumbs-up",
+        "aria-hidden": "true"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "javascript:void();"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-dollar-sign",
+        "aria-hidden": "true"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "javascript:void();"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-envelope",
+        "aria-hidden": "true"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "javascript:void();"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-ellipsis-h",
+        "aria-hidden": "true"
+      })))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
+        ref: "player",
+        autoPlay: true
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("source", {
+        src: this.state.file
+      })));
     }
   }]);
 
