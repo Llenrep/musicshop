@@ -20,7 +20,7 @@
     <link href="form-validation.css" rel="stylesheet">
   </head>
 
-  <body class="bg-light">
+  <body class="bg-dark">
 
     <div class="container">
       <div class="py-5 text-center">

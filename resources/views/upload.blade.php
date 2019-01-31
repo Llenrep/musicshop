@@ -45,8 +45,10 @@ Upload a Track!
     <div class="row">
         <div class="col-lg-4">
             <center>Image<hr>
+            <button type="button" class="btn btn-warning">Post your album art here
             <input type="file" name="image" style="font-weight:lighter;">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
+            </button>
             </center>
         </div>
 
@@ -58,6 +60,22 @@ Upload a Track!
                 </div>
             </center>
         </div>
+
+
+        <div class="col-lg-4">
+        <center>Genre<hr>
+  <button type="button" class="btn btn-danger">Genre</button>
+  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Trap</a>
+    <a class="dropdown-item" href="#">Dubstep</a>
+    <a class="dropdown-item" href="#">Future Bass</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Other</a>
+  </div>
+</div>
 
         <div class="col-lg-4">
             <center>Genre<hr>

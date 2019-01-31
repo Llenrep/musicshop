@@ -24,10 +24,10 @@ Profile
 
         <ul style="margin-right:65px; color: #3500D3;">
             <center><a>{{ $user->name }}<br><br></a>
-            <a href="/">Type<br><br></a>
-            <a href="/profile" color="black">Your Likes<br><br></a>
-            <a href="/">Post/Remove Music<br><br></a>
-            <a href="/profile">Purchase<br><br></a></center>
+            <button type="button" class="btn btn-light">Type<br></button>
+            <button type="button" class="btn btn-light">Likes<br></button>
+            <button type="button" class="btn btn-light">Post Music<br></button>
+            <button type="button" class="btn btn-light">Purchased<br></button></center>
         </ul>
 </div>
 
