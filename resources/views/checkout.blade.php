@@ -36,21 +36,21 @@
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">Product name</h6>
+                <h6 class="my-0">Song 1</h6>
                 <small class="text-muted">Brief description</small>
               </div>
               <span class="text-muted">$12</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">Second product</h6>
+                <h6 class="my-0">Beat 3</h6>
                 <small class="text-muted">Brief description</small>
               </div>
               <span class="text-muted">$8</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">Third item</h6>
+                <h6 class="my-0">Song 4</h6>
                 <small class="text-muted">Brief description</small>
               </div>
               <span class="text-muted">$5</span>

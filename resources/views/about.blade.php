@@ -16,6 +16,8 @@ About Us
     <img class="rounded-circle" src="{{ asset('images/44271615.jpg') }}" alt="Generic placeholder image" width="140" height="140">
     <h2>Justin Tibbetts</h2>
     <p>Hello I'm Justin. I attended school at Valencia and the University of Central Florida. During my time here at UCF I joined their coding bootcamp, where I learned all the basics and technicals of front end and back end. Im eager to see where the next step takes me.</p>
+    <p>I joined this career field because I love to solve problems. To me coding is like a big game of sudoku and there's no greater feeling than finding a solution to a bug in your code.</p>
+    <p>We went into this project as pasionate music lovers and haven't looked back since. This project was a lot of fun to make and working with Pernell made it even more of a blast. I'm looking forward to seeing where the future of our application takes us</p>
     <ul class="nav-item dropdown btn btn-secondary"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>View Information</a>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
       <li><a class="dropdown-item" href="#" target="_blank"
